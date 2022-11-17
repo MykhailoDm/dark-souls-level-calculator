@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dark Souls 3 Level Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      const lowLevels = [
+        "-",
+        "673",
+        "689",
+        "706",
+        "723",
+        "740",
+        "757",
+        "775",
+        "793",
+        "811",
+        "829",
+        "847"
+      ];
+      const START_LEVEL_OF_FUNCTION = 13
+      jQuery(function ($) {
+        $('#input_level').on('input', function () {
+
+          const providedLvl = parseInt($('#input_level').val())
+
+          console.log($('#input_level').val())
+          console.log(providedLvl)
+          if (providedLvl < START_LEVEL_OF_FUNCTION) {
+            $('#required_souls_for_level').text(lowLevels[providedLvl-1]);
+          } else {
+            $('#required_souls_for_level').text('TODO add calculation');
+          }
+        });
+      });
+    </script>
+</head>
+<body>
+<h1>Dark Souls 3 Level Calculator</h1>
+
+<div>
+    <div>
+        <label for="input_level">Calculate souls required for level:</label>
+        <input id="input_level" type="number" placeholder="e.g. 120" min="1" max="802">
+    </div>
+    <div>
+        <p id="required_souls_for_level"></p>
+    </div>
+</div>
+</body>
+</html>
